@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../BankBusiness/BankBusiness.csproj" Id="e6eb0fa5-919b-42f3-a0fc-4af4ab44d1bc" />
+  <Project Path="../DataBankSystem/DataBankSystem.csproj" Id="5ef86d25-c077-4000-8a48-8c71702bd210" />
+  <Project Path="WindowsFormsApp1.csproj" Id="3f0d7baf-af14-4697-b1af-c23fd301f93e" />
+</Solution>

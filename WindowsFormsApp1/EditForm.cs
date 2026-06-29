@@ -20,7 +20,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
               _Current_Admin=BankBusinessLogic.FindAdminByID(SelectedAdminID);
         }
-
         private void EditForm_Load(object sender, EventArgs e)
         {
            

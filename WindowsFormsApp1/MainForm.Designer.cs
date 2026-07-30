@@ -49,22 +49,22 @@
             this.btnEditAdmin = new System.Windows.Forms.Button();
             this.btnAddAdmin = new System.Windows.Forms.Button();
             this.pnlAvatarTop = new System.Windows.Forms.Panel();
+            this.btnEditPicture = new System.Windows.Forms.Button();
             this.lblPanelName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPanelRole = new System.Windows.Forms.Label();
             this.pnlPanelInfo = new System.Windows.Forms.Panel();
+            this.txtUNameVal = new System.Windows.Forms.TextBox();
             this.lblUNameLbl = new System.Windows.Forms.Label();
             this.lblFullNameLbl = new System.Windows.Forms.Label();
             this.lblFullNameVal = new System.Windows.Forms.Label();
             this.lblLastLoginLbl = new System.Windows.Forms.Label();
             this.lblLastLoginVal = new System.Windows.Forms.Label();
             this.pnlPanelBtns = new System.Windows.Forms.Panel();
+            this.btnCancelChanges = new System.Windows.Forms.Button();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnEditProfile = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.txtUNameVal = new System.Windows.Forms.TextBox();
-            this.btnEditPicture = new System.Windows.Forms.Button();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.btnCancelChanges = new System.Windows.Forms.Button();
             this.pnlTopBar.SuspendLayout();
             this.pnlBrandIcon.SuspendLayout();
             this.pnlContent.SuspendLayout();
@@ -153,6 +153,7 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(700, 504);
             this.pnlContent.TabIndex = 0;
+            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // lblManageSection
             // 
@@ -500,6 +501,19 @@
             this.pnlAvatarTop.Size = new System.Drawing.Size(194, 100);
             this.pnlAvatarTop.TabIndex = 0;
             // 
+            // btnEditPicture
+            // 
+            this.btnEditPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
+            this.btnEditPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnEditPicture.Location = new System.Drawing.Point(8, 71);
+            this.btnEditPicture.Name = "btnEditPicture";
+            this.btnEditPicture.Size = new System.Drawing.Size(52, 25);
+            this.btnEditPicture.TabIndex = 4;
+            this.btnEditPicture.Text = "upload";
+            this.btnEditPicture.UseVisualStyleBackColor = false;
+            this.btnEditPicture.Visible = false;
+            this.btnEditPicture.Click += new System.EventHandler(this.btnEditPicture_Click);
+            // 
             // lblPanelName
             // 
             this.lblPanelName.AutoSize = true;
@@ -545,6 +559,15 @@
             this.pnlPanelInfo.Padding = new System.Windows.Forms.Padding(14);
             this.pnlPanelInfo.Size = new System.Drawing.Size(200, 160);
             this.pnlPanelInfo.TabIndex = 1;
+            // 
+            // txtUNameVal
+            // 
+            this.txtUNameVal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.txtUNameVal.Location = new System.Drawing.Point(16, 30);
+            this.txtUNameVal.Name = "txtUNameVal";
+            this.txtUNameVal.ReadOnly = true;
+            this.txtUNameVal.Size = new System.Drawing.Size(81, 22);
+            this.txtUNameVal.TabIndex = 7;
             // 
             // lblUNameLbl
             // 
@@ -612,6 +635,32 @@
             this.pnlPanelBtns.Size = new System.Drawing.Size(200, 80);
             this.pnlPanelBtns.TabIndex = 2;
             // 
+            // btnCancelChanges
+            // 
+            this.btnCancelChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCancelChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnCancelChanges.Location = new System.Drawing.Point(144, 0);
+            this.btnCancelChanges.Name = "btnCancelChanges";
+            this.btnCancelChanges.Size = new System.Drawing.Size(47, 31);
+            this.btnCancelChanges.TabIndex = 6;
+            this.btnCancelChanges.Text = "Cancel";
+            this.btnCancelChanges.UseVisualStyleBackColor = false;
+            this.btnCancelChanges.Visible = false;
+            this.btnCancelChanges.Click += new System.EventHandler(this.btnCancelChanges_Click);
+            // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
+            this.btnSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnSaveChanges.Location = new System.Drawing.Point(93, 0);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(45, 31);
+            this.btnSaveChanges.TabIndex = 5;
+            this.btnSaveChanges.Text = "Save";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            // 
             // btnEditProfile
             // 
             this.btnEditProfile.BackColor = System.Drawing.Color.Transparent;
@@ -647,54 +696,6 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // txtUNameVal
-            // 
-            this.txtUNameVal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.txtUNameVal.Location = new System.Drawing.Point(16, 30);
-            this.txtUNameVal.Name = "txtUNameVal";
-            this.txtUNameVal.ReadOnly = true;
-            this.txtUNameVal.Size = new System.Drawing.Size(81, 22);
-            this.txtUNameVal.TabIndex = 7;
-            // 
-            // btnEditPicture
-            // 
-            this.btnEditPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
-            this.btnEditPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.btnEditPicture.Location = new System.Drawing.Point(8, 71);
-            this.btnEditPicture.Name = "btnEditPicture";
-            this.btnEditPicture.Size = new System.Drawing.Size(52, 25);
-            this.btnEditPicture.TabIndex = 4;
-            this.btnEditPicture.Text = "upload";
-            this.btnEditPicture.UseVisualStyleBackColor = false;
-            this.btnEditPicture.Visible = false;
-            this.btnEditPicture.Click += new System.EventHandler(this.btnEditPicture_Click);
-            // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
-            this.btnSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.btnSaveChanges.Location = new System.Drawing.Point(93, 0);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(45, 31);
-            this.btnSaveChanges.TabIndex = 5;
-            this.btnSaveChanges.Text = "Save";
-            this.btnSaveChanges.UseVisualStyleBackColor = false;
-            this.btnSaveChanges.Visible = false;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
-            // 
-            // btnCancelChanges
-            // 
-            this.btnCancelChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCancelChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.btnCancelChanges.Location = new System.Drawing.Point(144, 0);
-            this.btnCancelChanges.Name = "btnCancelChanges";
-            this.btnCancelChanges.Size = new System.Drawing.Size(47, 31);
-            this.btnCancelChanges.TabIndex = 6;
-            this.btnCancelChanges.Text = "Cancel";
-            this.btnCancelChanges.UseVisualStyleBackColor = false;
-            this.btnCancelChanges.Visible = false;
-            this.btnCancelChanges.Click += new System.EventHandler(this.btnCancelChanges_Click);
             // 
             // MainForm
             // 

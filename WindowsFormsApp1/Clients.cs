@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankBusiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,31 @@ namespace WindowsFormsApp1
 {
     public partial class Clients : Form
     {
-        public Clients()
+        AdminINFO _Current_admin = new AdminINFO();
+        DataTable _dataTable = new DataTable();
+        private void RefreshClientsList()
+        {
+            try
+            {
+                _dataTable = BankBusinessLogic.GetAllClients();
+                dgvClients.DataSource = _dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load Clients data.\n" + ex.Message);
+            }
+
+        }
+        public Clients(AdminINFO admin)
         {
             InitializeComponent();
+            _Current_admin = admin;
         }
+
+        private void Clients_Load(object sender, EventArgs e)
+        {
+            RefreshClientsList();
+        }
+
     }
 }

@@ -21,32 +21,32 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            if (BankBusinessLogic.TryToLogin(txtUserName.Text, txtpassword.Text))
-            {
+          
                 AdminINFO Current_Admin = BankBusinessLogic.TryTogetAdminInfo(txtUserName.Text);
-                Form frm = new MainForm(Current_Admin);
-                this.Hide();
-                frm.ShowDialog();
-                this.Close();
-
+            if (Current_Admin == null) 
+            {
+                MessageBox.Show("User Name not found");
+                return;
             }
-            else
-            {  
-                MessageBox.Show("User Name or Password not found");
-            }
-        }
+            if (txtpassword.Text == Current_Admin.Password)
+                {
 
-        private void btnSignIn_Click(object sender, EventArgs e)
-        {
+                    Form frm = new MainForm(Current_Admin);
+                    this.Hide();
+                    frm.ShowDialog();
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show(" Password not correct");
+                }
            
+                
+
         }
+
     }
 }

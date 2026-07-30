@@ -182,7 +182,14 @@ namespace WindowsFormsApp1
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            
+            Clients ClientForm = new Clients(_Current_Admin);
+            ClientForm.StartPosition = FormStartPosition.CenterParent;
+            ClientForm.ShowDialog(this);
+        }
+
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

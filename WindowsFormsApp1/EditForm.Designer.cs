@@ -141,7 +141,7 @@
             // pbEditAdminPicture
             // 
             this.pbEditAdminPicture.Image = global::WindowsFormsApp1.Properties.Resources._1000_F_24940114_byTrVVviV4zCscBU3F3uFzfY9j7CoPjG;
-            this.pbEditAdminPicture.Location = new System.Drawing.Point(21, 321);
+            this.pbEditAdminPicture.Location = new System.Drawing.Point(21, 326);
             this.pbEditAdminPicture.Name = "pbEditAdminPicture";
             this.pbEditAdminPicture.Size = new System.Drawing.Size(201, 154);
             this.pbEditAdminPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

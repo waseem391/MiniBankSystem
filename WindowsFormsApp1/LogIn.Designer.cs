@@ -164,7 +164,6 @@
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank System - Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlCard.ResumeLayout(false);
             this.pnlCard.PerformLayout();
             this.pnlIcon.ResumeLayout(false);

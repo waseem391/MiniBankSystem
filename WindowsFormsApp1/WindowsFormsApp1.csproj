@@ -130,6 +130,10 @@
       <Project>{e6eb0fa5-919b-42f3-a0fc-4af4ab44d1bc}</Project>
       <Name>BankBusiness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BankModels\BankModels.csproj">
+      <Project>{59618e9f-565f-4bff-b2a0-beef5e6b06c3}</Project>
+      <Name>BankModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1000_F_24940114_byTrVVviV4zCscBU3F3uFzfY9j7CoPjG.jpg" />

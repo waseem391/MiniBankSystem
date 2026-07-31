@@ -141,8 +141,6 @@ namespace WindowsFormsApp1
             row["PicturePath"] = PicturePath;
             row["Role"] = Role;
         }
-
-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ID = GetSelectedAdminID();    

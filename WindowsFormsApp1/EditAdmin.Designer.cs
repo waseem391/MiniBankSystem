@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class EditForm
+    partial class EditAdmin
     {
         /// <summary>
         /// Required designer variable.

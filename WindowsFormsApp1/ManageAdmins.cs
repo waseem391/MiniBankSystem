@@ -147,7 +147,7 @@ namespace WindowsFormsApp1
             if (ID > 0)
             {
                 
-                Form EditForm = new EditForm(ID);
+                Form EditForm = new EditAdmin(ID);
                 EditForm.ShowDialog();
                 AdminINFO admin = BankBusinessLogic.FindAdminByID(ID);
                 UpdateAdminInLocalTable(ID,admin.FullName,admin.UserName,admin.Role,admin.picturePath);

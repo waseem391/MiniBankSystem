@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -22,6 +23,10 @@ namespace WindowsFormsApp1
             {
                 _dataTable = BankBusinessLogic.GetAllClients();
                 dgvClients.DataSource = _dataTable;
+                dgvClients.Columns["UserID"].Visible = false;
+                dgvClients.Columns["UserID1"].Visible = false;
+                dgvClients.Columns["BankAccountID"].Visible = false;
+                dgvClients.Columns["Balance"].Visible=false;
             }
             catch (Exception ex)
             {
@@ -40,32 +45,20 @@ namespace WindowsFormsApp1
             RefreshClientsList();
             
         }
-        private int GetSelectedClientID() 
+        private void DisplaySelectedClientDetails() 
         {
             if (dgvClients.CurrentRow == null)
-                return -1;
-            return Convert.ToInt32(dgvClients.CurrentRow.Cells["UserID"].Value);
-        }
-        private void DisplaySelectedClientDetails(int UserID) 
-        {
-            if (UserID == -1)
                 return;
-            ClientINFO client = new ClientINFO();
-            client = BankBusinessLogic.FindClientByID(UserID);
-            lblFullNameval.Text = client.FullName;
-            lblNationalIDVal.Text = client.NationalID;
-            lblPhoneNumberVal.Text = client.PhoneNumber;
-            lblBankAccountVal.Text = client.BankAccountNumber;
-            lblAmountVal.Text = $"{client.Balance:N2} JOD";
+            lblUserIDVal.Text = dgvClients.CurrentRow.Cells["UserID"].Value.ToString();
+            lblFullNameval.Text = dgvClients.CurrentRow.Cells["FullName"].Value.ToString();
+            lblNationalIDVal.Text = dgvClients.CurrentRow.Cells["NationalID"].Value.ToString();
+            lblPhoneNumberVal.Text = dgvClients.CurrentRow.Cells["PhoneNumber"].Value.ToString();
+            lblBankAccountVal.Text = dgvClients.CurrentRow.Cells["BankAccountNumber"].Value.ToString();
+            lblAmountVal.Text = dgvClients.CurrentRow.Cells["Balance"].Value.ToString()+" JOD";
         }
         private void dgvClients_SelectionChanged(object sender, EventArgs e)
         {
-            DisplaySelectedClientDetails(GetSelectedClientID());
-        }
-
-        private void pnlClientInfo_Paint(object sender, PaintEventArgs e)
-        {
-
+            DisplaySelectedClientDetails();
         }
         private void RefreshClientsListBySearch(String text) 
         {
@@ -97,6 +90,47 @@ namespace WindowsFormsApp1
         private void btnMainForm_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            AddClient addClient = new AddClient();
+            addClient.ShowDialog();
+        }
+
+        private void btnEditClient_Click(object sender, EventArgs e)
+        {
+
+            pnlDisabled.Visible = true;
+            tbPhoneNumber.Text = lblPhoneNumberVal.Text;
+            lblEditFullName.Text = lblFullNameval.Text;
+            cbStatus.Text = dgvClients.CurrentRow.Cells["Status"].Value.ToString();
+            btnAddClient.Visible = false;
+
+        }
+        private void SaveChanges() 
+        {
+            String NewPhoneNumber = tbPhoneNumber.Text;
+            String NewStatus = cbStatus.Text;
+            int UserID = Convert.ToInt32(lblUserIDVal.Text);
+
+            if (BankBusinessLogic.SaveClientChanges(UserID, NewPhoneNumber, NewStatus))
+                MessageBox.Show("The editing process was successful.");
+            else
+                MessageBox.Show("something went wrong!");
+        }
+        private void btnSaveEdit_Click(object sender, EventArgs e)
+        {
+            pnlDisabled.Visible = false;
+            btnAddClient.Visible = true;
+            SaveChanges();
+            RefreshClientsList();
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            pnlDisabled.Visible = false;
+            btnAddClient.Visible = true;
         }
     }
 }

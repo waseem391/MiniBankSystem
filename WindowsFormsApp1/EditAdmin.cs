@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class EditForm : Form
+    public partial class EditAdmin : Form
     {
         private AdminINFO _Current_Admin;
-        public EditForm(int SelectedAdminID)
+        public EditAdmin(int SelectedAdminID)
         {
             InitializeComponent();
               _Current_Admin=BankBusinessLogic.FindAdminByID(SelectedAdminID);

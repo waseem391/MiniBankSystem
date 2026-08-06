@@ -96,6 +96,7 @@ namespace WindowsFormsApp1
         {
             AddClient addClient = new AddClient();
             addClient.ShowDialog();
+            RefreshClientsList();
         }
 
         private void btnEditClient_Click(object sender, EventArgs e)

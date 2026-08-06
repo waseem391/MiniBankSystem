@@ -149,11 +149,8 @@ namespace WindowsFormsApp1
             else 
             {
                 MessageBox.Show("the user name is unavailable");
-            }
-
-            
+            }   
         }
-        
         public String SaveAdminImage()
         {
             if (string.IsNullOrEmpty(_selectedImagePath))
@@ -187,9 +184,10 @@ namespace WindowsFormsApp1
             ClientForm.ShowDialog(this);
         }
 
-        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        private void btnDeposit_Click(object sender, EventArgs e)
         {
-
+            Deposit transaction = new Deposit(_Current_Admin);
+            transaction.ShowDialog();
         }
     }
 }

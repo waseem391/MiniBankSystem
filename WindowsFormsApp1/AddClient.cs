@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BankBusiness;
+using BankModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,15 +18,34 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void AddNewClient(ClientINFO client) 
         {
-
+            if (BankBusinessLogic.CreateClientAccount(client))
+            {
+                MessageBox.Show("Client Added successful");
+                this.Close();
+            }
+            else
+                MessageBox.Show("Error in entered information");
         }
-
+ 
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            ClientINFO client = new ClientINFO();
+            client.FullName = txtFullName.Text;
+            client.NationalID = txtNationalID.Text;
+            client.PhoneNumber = txtPhoneNumber.Text;
+            client.BirthDate = dtpBirthDate.Value;
+            AddNewClient(client);
+            
+            
+            
+            
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

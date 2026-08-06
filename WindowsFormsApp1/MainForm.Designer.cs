@@ -153,7 +153,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(700, 504);
             this.pnlContent.TabIndex = 0;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // lblManageSection
             // 
@@ -291,6 +290,7 @@
             this.btnDeposit.Text = "Deposit";
             this.btnDeposit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeposit.UseVisualStyleBackColor = false;
+            this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
             // 
             // pnlWithdrawCard
             // 

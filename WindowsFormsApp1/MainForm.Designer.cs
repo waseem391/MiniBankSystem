@@ -46,9 +46,12 @@
             this.lblHistoryIcon = new System.Windows.Forms.Label();
             this.btnTransaction = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEditAdmin = new System.Windows.Forms.Button();
+            this.btnAddAdmin = new System.Windows.Forms.Button();
             this.pnlAvatarTop = new System.Windows.Forms.Panel();
             this.btnEditPicture = new System.Windows.Forms.Button();
             this.lblPanelName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPanelRole = new System.Windows.Forms.Label();
             this.pnlPanelInfo = new System.Windows.Forms.Panel();
             this.txtUNameVal = new System.Windows.Forms.TextBox();
@@ -62,9 +65,6 @@
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnEditProfile = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnEditAdmin = new System.Windows.Forms.Button();
-            this.btnAddAdmin = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTopBar.SuspendLayout();
             this.pnlBrandIcon.SuspendLayout();
             this.pnlContent.SuspendLayout();
@@ -80,9 +80,9 @@
             this.pnlHistoryIcon.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlAvatarTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPanelInfo.SuspendLayout();
             this.pnlPanelBtns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTopBar
@@ -387,6 +387,7 @@
             this.btnTransfer.Text = "Transfer";
             this.btnTransfer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTransfer.UseVisualStyleBackColor = false;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
             // pnlHistoryCard
             // 
@@ -450,6 +451,46 @@
             this.panel1.Size = new System.Drawing.Size(194, 504);
             this.panel1.TabIndex = 1;
             // 
+            // btnEditAdmin
+            // 
+            this.btnEditAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditAdmin.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.images;
+            this.btnEditAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditAdmin.FlatAppearance.BorderSize = 0;
+            this.btnEditAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
+            this.btnEditAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditAdmin.Font = new System.Drawing.Font("Tahoma", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditAdmin.ForeColor = System.Drawing.Color.Black;
+            this.btnEditAdmin.Location = new System.Drawing.Point(107, 421);
+            this.btnEditAdmin.Name = "btnEditAdmin";
+            this.btnEditAdmin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.btnEditAdmin.Size = new System.Drawing.Size(87, 83);
+            this.btnEditAdmin.TabIndex = 3;
+            this.btnEditAdmin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditAdmin.UseVisualStyleBackColor = false;
+            this.btnEditAdmin.Click += new System.EventHandler(this.btnEditAdmin_Click);
+            // 
+            // btnAddAdmin
+            // 
+            this.btnAddAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAdmin.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.Add_Admins_Account;
+            this.btnAddAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAdmin.FlatAppearance.BorderSize = 0;
+            this.btnAddAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
+            this.btnAddAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAdmin.Font = new System.Drawing.Font("Tahoma", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAdmin.ForeColor = System.Drawing.Color.Black;
+            this.btnAddAdmin.Location = new System.Drawing.Point(3, 346);
+            this.btnAddAdmin.Name = "btnAddAdmin";
+            this.btnAddAdmin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.btnAddAdmin.Size = new System.Drawing.Size(94, 75);
+            this.btnAddAdmin.TabIndex = 2;
+            this.btnAddAdmin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddAdmin.UseVisualStyleBackColor = false;
+            this.btnAddAdmin.Click += new System.EventHandler(this.btnAddAdmins_Click);
+            // 
             // pnlAvatarTop
             // 
             this.pnlAvatarTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(35)))), ((int)(((byte)(50)))));
@@ -486,6 +527,16 @@
             this.lblPanelName.Size = new System.Drawing.Size(52, 17);
             this.lblPanelName.TabIndex = 1;
             this.lblPanelName.Text = "Admin";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.account_icon_sign_symbol_logo_design_free_vector;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // lblPanelRole
             // 
@@ -649,56 +700,6 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnEditAdmin
-            // 
-            this.btnEditAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditAdmin.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.images;
-            this.btnEditAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditAdmin.FlatAppearance.BorderSize = 0;
-            this.btnEditAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
-            this.btnEditAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditAdmin.Font = new System.Drawing.Font("Tahoma", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnEditAdmin.Location = new System.Drawing.Point(107, 421);
-            this.btnEditAdmin.Name = "btnEditAdmin";
-            this.btnEditAdmin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.btnEditAdmin.Size = new System.Drawing.Size(87, 83);
-            this.btnEditAdmin.TabIndex = 3;
-            this.btnEditAdmin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEditAdmin.UseVisualStyleBackColor = false;
-            this.btnEditAdmin.Click += new System.EventHandler(this.btnEditAdmin_Click);
-            // 
-            // btnAddAdmin
-            // 
-            this.btnAddAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddAdmin.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.Add_Admins_Account;
-            this.btnAddAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAdmin.FlatAppearance.BorderSize = 0;
-            this.btnAddAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
-            this.btnAddAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAdmin.Font = new System.Drawing.Font("Tahoma", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnAddAdmin.Location = new System.Drawing.Point(3, 346);
-            this.btnAddAdmin.Name = "btnAddAdmin";
-            this.btnAddAdmin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.btnAddAdmin.Size = new System.Drawing.Size(94, 75);
-            this.btnAddAdmin.TabIndex = 2;
-            this.btnAddAdmin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAddAdmin.UseVisualStyleBackColor = false;
-            this.btnAddAdmin.Click += new System.EventHandler(this.btnAddAdmins_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.account_icon_sign_symbol_logo_design_free_vector;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,10 +732,10 @@
             this.panel1.ResumeLayout(false);
             this.pnlAvatarTop.ResumeLayout(false);
             this.pnlAvatarTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlPanelInfo.ResumeLayout(false);
             this.pnlPanelInfo.PerformLayout();
             this.pnlPanelBtns.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

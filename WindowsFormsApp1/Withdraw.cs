@@ -47,8 +47,7 @@ namespace WindowsFormsApp1
             FillClientData(_client);
         }
         private void FillClientData(ClientINFO client)
-        {
-
+        { 
             lblName.Text = client.FullName;
             lblPhone.Text =  client.PhoneNumber;
             lblNationalID.Text = client.NationalID;

@@ -201,5 +201,11 @@ namespace WindowsFormsApp1
             withdraw.ShowDialog();
             
         }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            Transfer transfer = new Transfer(_Current_Admin);
+            transfer.ShowDialog();
+        }
     }
 }

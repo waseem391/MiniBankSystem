@@ -12,15 +12,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Deposit : Form
+    public partial class Withdraw : Form
     {
-        AdminINFO _Current_Admin;
         private ClientINFO _client = new ClientINFO();
-        public Deposit(AdminINFO admin)
+        private AdminINFO _Current_Admin;
+        public Withdraw(AdminINFO admin)
         {
             InitializeComponent();
             _Current_Admin = admin;
         }
+
+        private void Withdraw_Load(object sender, EventArgs e)
+        {
+            lblAdminName.Text = "Admin " + _Current_Admin.FullName;
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
@@ -39,57 +45,48 @@ namespace WindowsFormsApp1
                 return;
             }
             FillClientData(_client);
-
         }
         private void FillClientData(ClientINFO client)
         {
 
-            lblClientName.Text = "Name: " + client.FullName;
-            lblClientPhone.Text = "Phone: " + client.PhoneNumber;
-            lblClientID.Text = "National ID: " + client.NationalID;
-            lblAccountNumber.Text = "Account Number: " + client.BankAccountNumber;
+            lblName.Text = client.FullName;
+            lblPhone.Text =  client.PhoneNumber;
+            lblNationalID.Text = client.NationalID;
+            lblAccountNumber.Text = client.BankAccountNumber;
             lblBalance.Text = $"Balance: {client.Balance:N2} JD";
         }
         private void ClearClientData()
         {
-            lblClientName.Text = "Name:";
-            lblClientPhone.Text = "Phone:";
-            lblClientID.Text = "National ID:";
-            lblAccountNumber.Text = "Account Number:";
-            lblBalance.Text = "Balance: 0 JD";
+            lblName.Text = "";
+            lblPhone.Text = "";
+            lblNationalID.Text = "";
+            lblAccountNumber.Text = "";
+            lblBalance.Text = "Balance: ";
             _client = null;
         }
-        private void Deposit_Load(object sender, EventArgs e)
-        {
-            lblAdminName.Text = "Admin "+_Current_Admin.FullName;
-        }
 
-        private void lblAccountNumber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeposit_Click(object sender, EventArgs e)
+        private void btnWithdraw_Click(object sender, EventArgs e)
         {
             decimal Amount;
             Decimal.TryParse(txtAmount.Text, out Amount);
-            DialogResult result = MessageBox.Show("Are you sure you want to deposit to this Account?!", "Important message!!!", MessageBoxButtons.YesNo);
-            if (_client == null)
+            DialogResult result = MessageBox.Show("Are you sure you want to withdraw from this Account?!", "Important message!!!",MessageBoxButtons.YesNo);
+            if (_client == null) 
             {
-                MessageBox.Show("Please Enter Bank Account To Complete This Transaction");
+                MessageBox.Show("Please Enter Bank Account TO Complete This Transaction");
                 return;
             }
-            if (result == DialogResult.Yes & BankBusinessLogic.DepositToAccount(_client.UserID, Amount))
+                
+            if (result==DialogResult.Yes & BankBusinessLogic.WithdrawFromAccount(_client.UserID, Amount))
             {
                 MessageBox.Show(_client.FullName.Substring(0, _client.FullName.IndexOf(" ") + 1) + " account balance has been updated");
                 txtSearch.Text = _client.NationalID;
                 _client = BankBusinessLogic.FindClientByNationalID(txtSearch.Text);
                 FillClientData(_client);
                 Transaction transaction = new Transaction();
-                transaction.TransactionTypeID = 1;
+                transaction.TransactionTypeID = 2;
                 transaction.AmountOfTransaction = Amount;
                 transaction.BankAccountID = _client.BankAccountID;
-                transaction.Note = $"Deposit {Amount} JD by {_Current_Admin.FullName}";
+                transaction.Note = $"Withdraw {Amount} JD by {_Current_Admin.FullName}";
                 BankBusinessLogic.AddTransaction(transaction);
                 txtAmount.Text = "";
             }

@@ -189,5 +189,17 @@ namespace WindowsFormsApp1
             Deposit transaction = new Deposit(_Current_Admin);
             transaction.ShowDialog();
         }
+
+        private void pnlTopBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnWithdraw_Click(object sender, EventArgs e)
+        {
+            Withdraw withdraw = new Withdraw(_Current_Admin);
+            withdraw.ShowDialog();
+            
+        }
     }
 }

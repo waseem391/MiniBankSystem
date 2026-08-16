@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblAdminName.ForeColor = System.Drawing.Color.White;
-            this.lblAdminName.Location = new System.Drawing.Point(780, 30);
+            this.lblAdminName.Location = new System.Drawing.Point(708, 35);
             this.lblAdminName.Name = "lblAdminName";
             this.lblAdminName.Size = new System.Drawing.Size(102, 21);
             this.lblAdminName.TabIndex = 1;
@@ -130,6 +130,7 @@ namespace WindowsFormsApp1
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pnlClient
             // 
@@ -156,7 +157,7 @@ namespace WindowsFormsApp1
             // 
             this.lblClientName.Location = new System.Drawing.Point(25, 70);
             this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(100, 23);
+            this.lblClientName.Size = new System.Drawing.Size(149, 23);
             this.lblClientName.TabIndex = 1;
             this.lblClientName.Text = "Name:";
             // 
@@ -164,7 +165,7 @@ namespace WindowsFormsApp1
             // 
             this.lblClientPhone.Location = new System.Drawing.Point(25, 110);
             this.lblClientPhone.Name = "lblClientPhone";
-            this.lblClientPhone.Size = new System.Drawing.Size(100, 23);
+            this.lblClientPhone.Size = new System.Drawing.Size(149, 23);
             this.lblClientPhone.TabIndex = 2;
             this.lblClientPhone.Text = "Phone:";
             // 
@@ -172,7 +173,7 @@ namespace WindowsFormsApp1
             // 
             this.lblClientID.Location = new System.Drawing.Point(25, 150);
             this.lblClientID.Name = "lblClientID";
-            this.lblClientID.Size = new System.Drawing.Size(100, 23);
+            this.lblClientID.Size = new System.Drawing.Size(149, 23);
             this.lblClientID.TabIndex = 3;
             this.lblClientID.Text = "National ID:";
             // 
@@ -192,7 +193,7 @@ namespace WindowsFormsApp1
             this.lblAccountTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblAccountTitle.Location = new System.Drawing.Point(20, 20);
             this.lblAccountTitle.Name = "lblAccountTitle";
-            this.lblAccountTitle.Size = new System.Drawing.Size(100, 23);
+            this.lblAccountTitle.Size = new System.Drawing.Size(120, 23);
             this.lblAccountTitle.TabIndex = 0;
             this.lblAccountTitle.Text = "💳 Account Details";
             // 
@@ -200,16 +201,17 @@ namespace WindowsFormsApp1
             // 
             this.lblAccountNumber.Location = new System.Drawing.Point(25, 80);
             this.lblAccountNumber.Name = "lblAccountNumber";
-            this.lblAccountNumber.Size = new System.Drawing.Size(100, 23);
+            this.lblAccountNumber.Size = new System.Drawing.Size(205, 23);
             this.lblAccountNumber.TabIndex = 1;
             this.lblAccountNumber.Text = "Account Number:";
+            this.lblAccountNumber.Click += new System.EventHandler(this.lblAccountNumber_Click);
             // 
             // lblBalance
             // 
             this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblBalance.Location = new System.Drawing.Point(25, 130);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(100, 23);
+            this.lblBalance.Size = new System.Drawing.Size(205, 23);
             this.lblBalance.TabIndex = 2;
             this.lblBalance.Text = "Balance: 0 JD";
             // 
@@ -221,7 +223,7 @@ namespace WindowsFormsApp1
             this.pnlDeposit.Controls.Add(this.btnDeposit);
             this.pnlDeposit.Location = new System.Drawing.Point(250, 470);
             this.pnlDeposit.Name = "pnlDeposit";
-            this.pnlDeposit.Size = new System.Drawing.Size(500, 120);
+            this.pnlDeposit.Size = new System.Drawing.Size(500, 137);
             this.pnlDeposit.TabIndex = 4;
             // 
             // lblAmount
@@ -229,7 +231,7 @@ namespace WindowsFormsApp1
             this.lblAmount.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblAmount.Location = new System.Drawing.Point(170, 15);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(100, 23);
+            this.lblAmount.Size = new System.Drawing.Size(144, 23);
             this.lblAmount.TabIndex = 0;
             this.lblAmount.Text = "Enter Amount";
             // 
@@ -246,12 +248,13 @@ namespace WindowsFormsApp1
             // 
             this.btnDeposit.BackColor = System.Drawing.Color.Green;
             this.btnDeposit.ForeColor = System.Drawing.Color.White;
-            this.btnDeposit.Location = new System.Drawing.Point(170, 90);
+            this.btnDeposit.Location = new System.Drawing.Point(166, 90);
             this.btnDeposit.Name = "btnDeposit";
             this.btnDeposit.Size = new System.Drawing.Size(160, 35);
             this.btnDeposit.TabIndex = 2;
             this.btnDeposit.Text = "💰 Deposit";
             this.btnDeposit.UseVisualStyleBackColor = false;
+            this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
             // 
             // Deposit
             // 
@@ -264,8 +267,8 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.pnlDeposit);
             this.Name = "Deposit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Deposit Money";
-            this.Load += new System.EventHandler(this.Deposit_Load_1);
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.Deposit_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlSearch.ResumeLayout(false);
